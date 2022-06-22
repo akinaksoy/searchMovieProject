@@ -16,6 +16,7 @@
 		1FFF83F02863A26D00E2FCC5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1FFF83EF2863A26D00E2FCC5 /* SnapKit */; };
 		1FFF83F32863A29600E2FCC5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1FFF83F22863A29600E2FCC5 /* Alamofire */; };
 		1FFF83F62863A2CC00E2FCC5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1FFF83F52863A2CC00E2FCC5 /* Kingfisher */; };
+		1FFF83F92863A5E700E2FCC5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF83F82863A5E700E2FCC5 /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		1FFF83DD28639D8F00E2FCC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FFF83E028639D8F00E2FCC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1FFF83E228639D8F00E2FCC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FFF83F82863A5E700E2FCC5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		1FFF83EC28639FAE00E2FCC5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				1FFF83FA2863A76400E2FCC5 /* Extensions */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -119,6 +122,14 @@
 				1FFF83DF28639D8F00E2FCC5 /* LaunchScreen.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1FFF83FA2863A76400E2FCC5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1FFF83F82863A5E700E2FCC5 /* ColorExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +237,7 @@
 				1FFF83D628639D8D00E2FCC5 /* SearchViewController.swift in Sources */,
 				1FFF83D228639D8D00E2FCC5 /* AppDelegate.swift in Sources */,
 				1FFF83D428639D8D00E2FCC5 /* SceneDelegate.swift in Sources */,
+				1FFF83F92863A5E700E2FCC5 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
