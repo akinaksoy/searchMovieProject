@@ -47,7 +47,6 @@
 			isa = PBXGroup;
 			children = (
 				1FFF83D028639D8D00E2FCC5 /* searchMovieProject */,
-				1FFF83E228639D8F00E2FCC5 /* Info.plist */,
 				1FFF83CF28639D8D00E2FCC5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,6 +68,7 @@
 				1FFF83EB28639FA900E2FCC5 /* Scenes */,
 				1FFF83EC28639FAE00E2FCC5 /* Utilities */,
 				1FFF83ED28639FB500E2FCC5 /* View */,
+				1FFF83E228639D8F00E2FCC5 /* Info.plist */,
 			);
 			path = searchMovieProject;
 			sourceTree = "<group>";
@@ -131,6 +131,7 @@
 				1FFF83CA28639D8D00E2FCC5 /* Sources */,
 				1FFF83CB28639D8D00E2FCC5 /* Frameworks */,
 				1FFF83CC28639D8D00E2FCC5 /* Resources */,
+				1FFF83F72863A37200E2FCC5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -195,6 +196,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1FFF83F72863A37200E2FCC5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint > /dev/null; then\n  swiftlint --format --fix && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1FFF83CA28639D8D00E2FCC5 /* Sources */ = {
