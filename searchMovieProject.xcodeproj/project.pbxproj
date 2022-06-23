@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F6724A62864EAD500362A35 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6724A52864EAD500362A35 /* SearchResultViewController.swift */; };
 		1F9C4756286456AE002537E1 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9C4755286456AE002537E1 /* SearchViewModel.swift */; };
 		1F9C47582864823C002537E1 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9C47572864823C002537E1 /* MovieService.swift */; };
 		1FFF83D228639D8D00E2FCC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF83D128639D8D00E2FCC5 /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F6724A52864EAD500362A35 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		1F9C4755286456AE002537E1 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		1F9C47572864823C002537E1 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 		1FFF83CE28639D8D00E2FCC5 /* searchMovieProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = searchMovieProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +62,7 @@
 			children = (
 				1FFF83D528639D8D00E2FCC5 /* SearchViewController.swift */,
 				1F9C4755286456AE002537E1 /* SearchViewModel.swift */,
+				1F6724A52864EAD500362A35 /* SearchResultViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				1F9C47582864823C002537E1 /* MovieService.swift in Sources */,
 				1FFF83FF2863AF8A00E2FCC5 /* MovieAPIManager.swift in Sources */,
 				1F9C4756286456AE002537E1 /* SearchViewModel.swift in Sources */,
+				1F6724A62864EAD500362A35 /* SearchResultViewController.swift in Sources */,
 				1FFF84022863B3DC00E2FCC5 /* Movie.swift in Sources */,
 				1FFF83F92863A5E700E2FCC5 /* ColorExtension.swift in Sources */,
 			);
