@@ -10,10 +10,11 @@ import UIKit
 
 extension UILabel {
 
-    convenience init(text: String, fontSize: CGFloat) {
+    convenience init(text: String, fontSize: CGFloat, textColor: UIColor) {
         self.init()
         self.text = text
         self.font = .boldSystemFont(ofSize: fontSize)
+        self.textColor = textColor
     }
 
 }

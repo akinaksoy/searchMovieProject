@@ -7,10 +7,17 @@
 
 import Foundation
 import UIKit
-struct ColorExtension {
+extension UIColor {
 
     static var setTitleColor: UIColor {
         if let color = UIColor(named: "White-1") {
+            return color
+        } else {
+            return .white
+        }
+    }
+    static var setContentColor: UIColor {
+        if let color = UIColor(named: "Blue-1") {
             return color
         } else {
             return .white
