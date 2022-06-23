@@ -9,9 +9,4 @@ import Foundation
 class SearchViewModel {
     var movieList: [Search] = [Search]()
 
-    func getMovieList(movieName: String) {
-
-        movieList = MovieService.shared.getMovieList(movieName: movieName)
-    }
-
 }

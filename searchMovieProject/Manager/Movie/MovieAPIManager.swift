@@ -15,25 +15,30 @@ struct Constants {
 }
 
 class MovieAPIManager {
-
-    func getAllMoviesWithName(movieName: String, completition: @escaping (Result<Movie, Error>) -> Void) {
+    static let shared = MovieAPIManager()
+    typealias MoviesCallBack = (_ movies: Movie?, _ status: Bool, _ message: String) -> Void
+    var callBack: MoviesCallBack?
+    func getAllMoviesWithName(movieName: String) {
         let url = "\(Constants.baseURL)?\(Constants.APIKey)&s=\(movieName)"
-
         AF.request(url,
                    method: .get,
                    parameters: nil,
                    encoding: URLEncoding.default,
                    headers: nil,
                    interceptor: nil).response { (responseData) in
-                    guard let data = responseData.data else {return}
+                    guard let data = responseData.data else {
+                        self.callBack?(nil, false, "")
+                        return}
                     do {
                         let movies = try JSONDecoder().decode(Movie.self, from: data)
-                        completition(.success(movies))
+                        self.callBack?(movies, true, "")
                     } catch {
-                        completition(.failure(error))
+                        self.callBack?(nil, false, "")
                         print(error.localizedDescription)
                     }
                    }
     }
-
+    func completionHandler(callBack: @escaping MoviesCallBack) {
+        self.callBack = callBack
+    }
 }

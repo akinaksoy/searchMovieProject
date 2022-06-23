@@ -13,25 +13,25 @@ class SearchResultTableViewCell: UITableViewCell {
     private let movieTitleLabel = UILabel.init(text: "",
                                                fontSize: 16,
                                                textColor: UIColor.setCellHeaderLabelColor)
-    private let movieDescriptionLabel = UILabel.init(text: "",
-                                                     fontSize: 12,
-                                                     textColor: UIColor.setCellContentLabelColor)
-    private let movieImage = UIImageView.init(image: UIImage(systemName: "plus"))
+    private let movieYearLabel = UILabel.init(text: "",
+                                              fontSize: 12,
+                                              textColor: UIColor.setCellContentLabelColor)
+    private let movieImage = UIImageView.init(image: nil)
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = UIColor.setCellBackgroundColor
         contentView.addSubview(movieImage)
         contentView.addSubview(movieTitleLabel)
-        contentView.addSubview(movieDescriptionLabel)
+        contentView.addSubview(movieYearLabel)
 
         movieTitleLabel.numberOfLines = 0
         movieTitleLabel.textAlignment = .center
-        movieDescriptionLabel.numberOfLines = 0
-        movieDescriptionLabel.textAlignment = .center
+        movieYearLabel.numberOfLines = 0
+        movieYearLabel.textAlignment = .center
 
         movieTitleLabel.text = "Batman"
-        movieDescriptionLabel.text = "Yarasalar ile dolu bir hayat"
+        movieYearLabel.text = "Yarasalar ile dolu bir hayat"
     }
 
     override func layoutSubviews() {
@@ -46,7 +46,7 @@ class SearchResultTableViewCell: UITableViewCell {
             make.right.equalToSuperview().inset(24)
             make.top.equalToSuperview().offset(24)
         }
-        movieDescriptionLabel.snp.makeConstraints { make in
+        movieYearLabel.snp.makeConstraints { make in
             make.left.right.equalTo(movieTitleLabel)
             make.top.equalTo(movieTitleLabel.snp_bottomMargin).offset(16)
         }
@@ -56,4 +56,8 @@ class SearchResultTableViewCell: UITableViewCell {
         fatalError()
     }
 
+    func configure(model: Search) {
+        movieTitleLabel.text = model.title
+        movieYearLabel.text = model.year
+    }
 }

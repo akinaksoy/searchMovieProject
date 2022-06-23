@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SearchViewController: BaseViewController, UISearchResultsUpdating {
+class SearchViewController: BaseViewController, UISearchBarDelegate {
 
     let viewModel = SearchViewModel()
 
@@ -36,7 +36,7 @@ class SearchViewController: BaseViewController, UISearchResultsUpdating {
         super.configureNavigationBar()
         title = "Search"
         navigationItem.searchController = searchController
-        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
     }
 
     override func setup() {
@@ -56,11 +56,24 @@ class SearchViewController: BaseViewController, UISearchResultsUpdating {
             make.centerX.equalToSuperview()
         }
     }
-
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let movieText = searchController.searchBar.text else {
-            return
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let searchResultPage = searchController.searchResultsController as? SearchResultViewController
+        guard let movieName = searchController.searchBar.text else {return}
+        let manager = MovieAPIManager()
+        manager.getAllMoviesWithName(movieName: movieName)
+        manager.completionHandler {[weak self] movies, status, message in
+            if status {
+                guard let self = self else {return}
+                guard let movieResult = movies else {return}
+                self.viewModel.movieList = movieResult.search
+                searchResultPage?.searchResultList = movieResult.search
+                searchResultPage?.updateTable()
+            } else {
+                print(message)
+            }
         }
-        print(movieText)
+
+        searchBar.resignFirstResponder() // hide keyboard
+
     }
 }
