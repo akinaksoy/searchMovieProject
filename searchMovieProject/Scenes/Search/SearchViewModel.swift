@@ -7,18 +7,11 @@
 
 import Foundation
 class SearchViewModel {
+    var movieList: [Search] = [Search]()
 
-    func getMovieList(movieName: String) -> [Search] {
-        var movieList: [Search] = [Search]()
-        MovieAPIManager.shared.getAllMoviesWithName(movieName: movieName) { results in
-            switch results {
-            case .success(let movies) :
-                movieList = movies.search
-            case .failure(let error) :
-                print(error.localizedDescription)
-            }
-        }
-        return movieList
+    func getMovieList(movieName: String) {
+
+        movieList = MovieService.shared.getMovieList(movieName: movieName)
     }
 
 }

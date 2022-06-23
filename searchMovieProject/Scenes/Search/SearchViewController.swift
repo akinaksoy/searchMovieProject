@@ -15,11 +15,10 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         // print(viewModel.getMovie(index: 2))
         // Do any additional setup after loading the view.
-        
+
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        
 
     }
 

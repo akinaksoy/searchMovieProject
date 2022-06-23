@@ -15,7 +15,6 @@ struct Constants {
 }
 
 class MovieAPIManager {
-    static let shared = MovieAPIManager()
 
     func getAllMoviesWithName(movieName: String, completition: @escaping (Result<Movie, Error>) -> Void) {
         let url = "\(Constants.baseURL)?\(Constants.APIKey)&s=\(movieName)"
