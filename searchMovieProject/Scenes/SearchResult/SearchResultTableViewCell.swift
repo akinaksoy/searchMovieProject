@@ -6,10 +6,10 @@
 //
 
 import UIKit
-
+import Kingfisher
 class SearchResultTableViewCell: UITableViewCell {
     static let identifier = "SearchResultTableViewCell"
-
+    let activityIndicatorView = UIActivityIndicatorView(style: .medium)
     private let movieTitleLabel = UILabel.init(text: "",
                                                fontSize: 16,
                                                textColor: UIColor.setCellHeaderLabelColor)
@@ -24,12 +24,12 @@ class SearchResultTableViewCell: UITableViewCell {
         contentView.addSubview(movieImage)
         contentView.addSubview(movieTitleLabel)
         contentView.addSubview(movieYearLabel)
-
         movieTitleLabel.numberOfLines = 0
         movieTitleLabel.textAlignment = .center
         movieYearLabel.numberOfLines = 0
         movieYearLabel.textAlignment = .center
 
+        prepareIndicator()
         movieTitleLabel.text = "Batman"
         movieYearLabel.text = "Yarasalar ile dolu bir hayat"
     }
@@ -39,7 +39,7 @@ class SearchResultTableViewCell: UITableViewCell {
         movieImage.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.left.equalToSuperview()
-            make.width.height.equalTo(56)
+            make.width.height.equalTo(110)
         }
         movieTitleLabel.snp.makeConstraints { make in
             make.left.equalTo(movieImage.snp_rightMargin).offset(24)
@@ -55,9 +55,26 @@ class SearchResultTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError()
     }
-
+    func prepareIndicator() {
+        activityIndicatorView.color = .setCellContentLabelColor
+        contentView.addSubview(activityIndicatorView)
+        activityIndicatorView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview()
+            make.width.height.equalTo(110)
+        }
+        activityIndicatorView.startAnimating()
+    }
     func configure(model: Search) {
         movieTitleLabel.text = model.title
         movieYearLabel.text = model.year
+        prepareIndicator()
+        guard let imageURL = URL.init(string: model.poster) else {return}
+        DispatchQueue.main.async {
+            KF.url(imageURL).set(to: self.movieImage )
+            self.activityIndicatorView.stopAnimating()
+            self.activityIndicatorView.removeFromSuperview()
+        }
+
     }
 }

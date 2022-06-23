@@ -8,7 +8,12 @@
 import UIKit
 import SnapKit
 
-class SearchViewController: BaseViewController, UISearchBarDelegate {
+class SearchViewController: BaseViewController, UISearchBarDelegate, UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchResultPage = searchController.searchResultsController as? SearchResultViewController
+        searchResultPage?.searchResultList = []
+        searchResultPage?.updateTable()
+    }
 
     let viewModel = SearchViewModel()
 
