@@ -33,6 +33,7 @@ class SearchViewController: BaseViewController, UISearchBarDelegate, UISearchRes
                                                   textColor: UIColor.setContentColor)
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchController.searchResultsUpdater = self
         setup()
         configureNavigationBar()
     }
