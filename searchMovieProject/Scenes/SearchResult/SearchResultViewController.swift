@@ -10,15 +10,24 @@ import UIKit
 class SearchResultViewController: BaseViewController {
     private lazy var searchTable: UITableView = {
         let table = UITableView()
-        // table.register(ToDoTableViewCell.self, forCellReuseIdentifier: ToDoTableViewCell.identifier)
+        table.register(SearchResultTableViewCell.self, forCellReuseIdentifier: SearchResultTableViewCell.identifier)
         table.delegate = self
         table.dataSource = self
         return table
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
 
+    }
+
+    override func setup() {
+        super.setup()
         designTable()
+        configureNavigationBar()
+    }
+    override func configureNavigationBar() {
+        super.configureNavigationBar()
     }
 
     func designTable() {
@@ -38,8 +47,10 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.backgroundColor = .black
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.identifier, for: indexPath) as? SearchResultTableViewCell else {
+            return UITableViewCell()
+        }
+
         return cell
     }
 

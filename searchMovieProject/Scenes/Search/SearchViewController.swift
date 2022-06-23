@@ -20,13 +20,9 @@ class SearchViewController: BaseViewController, UISearchResultsUpdating {
         controller.searchBar.searchBarStyle = .minimal
         return controller
     }()
-    private let searchWarningImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "magnifyingglass")
-        imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = UIColor.setContentColor
-        return imageView
-    }()
+    private let searchWarningImage = UIImageView.init(systemImageName: "magnifyingglass",
+                                                      tintColor: UIColor.setContentColor)
+
     private let searchWarningLabel = UILabel.init(text: "Please Search Movie",
                                                   fontSize: 16,
                                                   textColor: UIColor.setContentColor)
