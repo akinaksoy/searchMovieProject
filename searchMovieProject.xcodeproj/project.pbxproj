@@ -11,6 +11,8 @@
 		1F6724AA2864EC6B00362A35 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6724A92864EC6B00362A35 /* BaseViewController.swift */; };
 		1F6724AC2864F6F500362A35 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6724AB2864F6F500362A35 /* SearchResultTableViewCell.swift */; };
 		1F6724AE2864F77400362A35 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6724AD2864F77400362A35 /* ImageView.swift */; };
+		1F6724B028652AB300362A35 /* SearchResult+TABLEVIEW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6724AF28652AB300362A35 /* SearchResult+TABLEVIEW.swift */; };
+		1F6724B228652AFB00362A35 /* Search+SEARCHBAR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6724B128652AFB00362A35 /* Search+SEARCHBAR.swift */; };
 		1F9C4756286456AE002537E1 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9C4755286456AE002537E1 /* SearchViewModel.swift */; };
 		1FFF83D228639D8D00E2FCC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF83D128639D8D00E2FCC5 /* AppDelegate.swift */; };
 		1FFF83D428639D8D00E2FCC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF83D328639D8D00E2FCC5 /* SceneDelegate.swift */; };
@@ -32,6 +34,8 @@
 		1F6724A92864EC6B00362A35 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1F6724AB2864F6F500362A35 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		1F6724AD2864F77400362A35 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		1F6724AF28652AB300362A35 /* SearchResult+TABLEVIEW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchResult+TABLEVIEW.swift"; sourceTree = "<group>"; };
+		1F6724B128652AFB00362A35 /* Search+SEARCHBAR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search+SEARCHBAR.swift"; sourceTree = "<group>"; };
 		1F9C4755286456AE002537E1 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		1FFF83CE28639D8D00E2FCC5 /* searchMovieProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = searchMovieProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FFF83D128639D8D00E2FCC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +71,7 @@
 				1F6724A52864EAD500362A35 /* SearchResultViewController.swift */,
 				1F6724AB2864F6F500362A35 /* SearchResultTableViewCell.swift */,
 				1F9C4755286456AE002537E1 /* SearchViewModel.swift */,
+				1F6724AF28652AB300362A35 /* SearchResult+TABLEVIEW.swift */,
 			);
 			path = SearchResult;
 			sourceTree = "<group>";
@@ -83,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				1FFF83D528639D8D00E2FCC5 /* SearchViewController.swift */,
+				1F6724B128652AFB00362A35 /* Search+SEARCHBAR.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -311,12 +317,14 @@
 				1FFF83D228639D8D00E2FCC5 /* AppDelegate.swift in Sources */,
 				1FFF83D428639D8D00E2FCC5 /* SceneDelegate.swift in Sources */,
 				1F6724AA2864EC6B00362A35 /* BaseViewController.swift in Sources */,
+				1F6724B228652AFB00362A35 /* Search+SEARCHBAR.swift in Sources */,
 				1FFF83FF2863AF8A00E2FCC5 /* MovieAPIManager.swift in Sources */,
 				1F9C4756286456AE002537E1 /* SearchViewModel.swift in Sources */,
 				1F6724A62864EAD500362A35 /* SearchResultViewController.swift in Sources */,
 				1FFF84022863B3DC00E2FCC5 /* Movie.swift in Sources */,
 				1F6724AC2864F6F500362A35 /* SearchResultTableViewCell.swift in Sources */,
 				1F6724AE2864F77400362A35 /* ImageView.swift in Sources */,
+				1F6724B028652AB300362A35 /* SearchResult+TABLEVIEW.swift in Sources */,
 				1FFF83F92863A5E700E2FCC5 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

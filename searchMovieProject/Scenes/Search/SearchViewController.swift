@@ -8,16 +8,11 @@
 import UIKit
 import SnapKit
 
-class SearchViewController: BaseViewController, UISearchBarDelegate, UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchResultPage = searchController.searchResultsController as? SearchResultViewController
-        searchResultPage?.searchResultList = []
-        searchResultPage?.updateTable()
-    }
+class SearchViewController: BaseViewController {
 
     let viewModel = SearchViewModel()
 
-    private let searchController: UISearchController = {
+    internal let searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: SearchResultViewController())
         controller.searchBar.placeholder = "Search Movie or Tv Show"
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self])
@@ -62,24 +57,5 @@ class SearchViewController: BaseViewController, UISearchBarDelegate, UISearchRes
             make.centerX.equalToSuperview()
         }
     }
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let searchResultPage = searchController.searchResultsController as? SearchResultViewController
-        guard let movieName = searchController.searchBar.text else {return}
-        let manager = MovieAPIManager()
-        manager.getAllMoviesWithName(movieName: movieName)
-        manager.completionHandler {[weak self] movies, status, message in
-            if status {
-                guard let self = self else {return}
-                guard let movieResult = movies else {return}
-                self.viewModel.movieList = movieResult.search
-                searchResultPage?.searchResultList = movieResult.search
-                searchResultPage?.updateTable()
-            } else {
-                print(message)
-            }
-        }
 
-        searchBar.resignFirstResponder() // hide keyboard
-
-    }
 }
