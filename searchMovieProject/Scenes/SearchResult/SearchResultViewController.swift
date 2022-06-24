@@ -45,7 +45,8 @@ class SearchResultViewController: BaseViewController {
         view.addSubview(searchTable)
         searchTable.separatorColor = UIColor.setCellHeaderLabelColor
         searchTable.snp.makeConstraints { make in
-            make.edges.equalTo(view.safeAreaLayoutGuide)
+            make.top.left.right.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalToSuperview()
         }
     }
     func updateTable() {
