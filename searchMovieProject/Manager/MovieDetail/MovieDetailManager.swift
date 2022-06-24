@@ -1,18 +1,21 @@
 //
-//  MovieAPIManager.swift
+//  MovieDetailManager.swift
 //  searchMovieProject
 //
-//  Created by Akın Aksoy on 22.06.2022.
+//  Created by Akın Aksoy on 24.06.2022.
 //
+
 import Foundation
 import Alamofire
 
-class MovieAPIManager {
-    static let shared = MovieAPIManager()
-    typealias MoviesCallBack = (_ movies: Movie?, _ status: Bool, _ message: String) -> Void
-    var callBack: MoviesCallBack?
-    func getAllMoviesWithName(movieName: String) {
-        let url = "\(Constants.baseURL)?\(Constants.APIKey)&s=\(movieName)"
+// https://www.omdbapi.com/?apikey=ab0dda03&i=tt1569923
+
+class MovieDetailAPIManager {
+    static let shared = MovieDetailAPIManager()
+    typealias MovieCallBack = (_ movies: MovieDetail?, _ status: Bool, _ message: String) -> Void
+    var callBack: MovieCallBack?
+    func getAllMoviesWithName(imdbID: String) {
+        let url = "\(Constants.baseURL)?\(Constants.APIKey)&i=\(imdbID)"
         AF.request(url,
                    method: .get,
                    parameters: nil,
@@ -23,15 +26,15 @@ class MovieAPIManager {
                         self.callBack?(nil, false, "")
                         return}
                     do {
-                        let movies = try JSONDecoder().decode(Movie.self, from: data)
-                        self.callBack?(movies, true, "")
+                        let movie = try JSONDecoder().decode(MovieDetail.self, from: data)
+                        self.callBack?(movie, true, "")
                     } catch {
                         self.callBack?(nil, false, "")
                         print(error.localizedDescription)
                     }
                    }
     }
-    func completionHandler(callBack: @escaping MoviesCallBack) {
+    func completionHandler(callBack: @escaping MovieCallBack) {
         self.callBack = callBack
     }
 }

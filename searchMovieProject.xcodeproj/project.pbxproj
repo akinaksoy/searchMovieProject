@@ -13,6 +13,10 @@
 		1F6724AE2864F77400362A35 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6724AD2864F77400362A35 /* ImageView.swift */; };
 		1F6724B028652AB300362A35 /* SearchResult+TABLEVIEW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6724AF28652AB300362A35 /* SearchResult+TABLEVIEW.swift */; };
 		1F6724B228652AFB00362A35 /* Search+SEARCHBAR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6724B128652AFB00362A35 /* Search+SEARCHBAR.swift */; };
+		1F6724B52865913200362A35 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6724B42865913200362A35 /* MovieDetailViewController.swift */; };
+		1F6724B72865938A00362A35 /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6724B62865938A00362A35 /* MovieDetail.swift */; };
+		1F6724BA2865948B00362A35 /* MovieDetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6724B92865948B00362A35 /* MovieDetailManager.swift */; };
+		1F6724BD2865956A00362A35 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6724BC2865956A00362A35 /* Constants.swift */; };
 		1F9C4756286456AE002537E1 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9C4755286456AE002537E1 /* SearchViewModel.swift */; };
 		1FFF83D228639D8D00E2FCC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF83D128639D8D00E2FCC5 /* AppDelegate.swift */; };
 		1FFF83D428639D8D00E2FCC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF83D328639D8D00E2FCC5 /* SceneDelegate.swift */; };
@@ -36,6 +40,10 @@
 		1F6724AD2864F77400362A35 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		1F6724AF28652AB300362A35 /* SearchResult+TABLEVIEW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchResult+TABLEVIEW.swift"; sourceTree = "<group>"; };
 		1F6724B128652AFB00362A35 /* Search+SEARCHBAR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search+SEARCHBAR.swift"; sourceTree = "<group>"; };
+		1F6724B42865913200362A35 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		1F6724B62865938A00362A35 /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
+		1F6724B92865948B00362A35 /* MovieDetailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailManager.swift; sourceTree = "<group>"; };
+		1F6724BC2865956A00362A35 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1F9C4755286456AE002537E1 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		1FFF83CE28639D8D00E2FCC5 /* searchMovieProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = searchMovieProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FFF83D128639D8D00E2FCC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +90,22 @@
 				1F6724A92864EC6B00362A35 /* BaseViewController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		1F6724B32865910B00362A35 /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1F6724B42865913200362A35 /* MovieDetailViewController.swift */,
+			);
+			path = MovieDetail;
+			sourceTree = "<group>";
+		};
+		1F6724B82865947800362A35 /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1F6724B92865948B00362A35 /* MovieDetailManager.swift */,
+			);
+			path = MovieDetail;
 			sourceTree = "<group>";
 		};
 		1F9C47522864565D002537E1 /* Search */ = {
@@ -144,6 +168,7 @@
 		1FFF83E928639F9500E2FCC5 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				1F6724B82865947800362A35 /* MovieDetail */,
 				1F9C4759286482ED002537E1 /* Movie */,
 			);
 			path = Manager;
@@ -161,6 +186,7 @@
 		1FFF83EB28639FA900E2FCC5 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				1F6724B32865910B00362A35 /* MovieDetail */,
 				1F6724A72864EC3900362A35 /* SearchResult */,
 				1F9C47522864565D002537E1 /* Search */,
 			);
@@ -171,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				1FFF83FA2863A76400E2FCC5 /* Extensions */,
+				1F6724BC2865956A00362A35 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -206,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				1FFF84012863B3DC00E2FCC5 /* Movie.swift */,
+				1F6724B62865938A00362A35 /* MovieDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -312,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FFF83DC28639D8D00E2FCC5 /* searchMovieProject.xcdatamodeld in Sources */,
+				1F6724BD2865956A00362A35 /* Constants.swift in Sources */,
 				1FFF83D628639D8D00E2FCC5 /* SearchViewController.swift in Sources */,
 				1FFF83FD2863ADFC00E2FCC5 /* Label.swift in Sources */,
 				1FFF83D228639D8D00E2FCC5 /* AppDelegate.swift in Sources */,
@@ -320,10 +349,13 @@
 				1F6724B228652AFB00362A35 /* Search+SEARCHBAR.swift in Sources */,
 				1FFF83FF2863AF8A00E2FCC5 /* MovieAPIManager.swift in Sources */,
 				1F9C4756286456AE002537E1 /* SearchViewModel.swift in Sources */,
+				1F6724BA2865948B00362A35 /* MovieDetailManager.swift in Sources */,
 				1F6724A62864EAD500362A35 /* SearchResultViewController.swift in Sources */,
 				1FFF84022863B3DC00E2FCC5 /* Movie.swift in Sources */,
 				1F6724AC2864F6F500362A35 /* SearchResultTableViewCell.swift in Sources */,
+				1F6724B52865913200362A35 /* MovieDetailViewController.swift in Sources */,
 				1F6724AE2864F77400362A35 /* ImageView.swift in Sources */,
+				1F6724B72865938A00362A35 /* MovieDetail.swift in Sources */,
 				1F6724B028652AB300362A35 /* SearchResult+TABLEVIEW.swift in Sources */,
 				1FFF83F92863A5E700E2FCC5 /* ColorExtension.swift in Sources */,
 			);

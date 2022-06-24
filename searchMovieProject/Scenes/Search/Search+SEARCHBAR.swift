@@ -15,7 +15,7 @@ extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
         searchResultPage?.searchResultList = []
         searchResultPage?.updateTable()
     }
-    
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchResultPage = searchController.searchResultsController as? SearchResultViewController
         guard let movieName = searchController.searchBar.text else {return}
@@ -25,7 +25,6 @@ extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
             if status {
                 guard let self = self else {return}
                 guard let movieResult = movies else {return}
-                self.viewModel.movieList = movieResult.search
                 searchResultPage?.searchResultList = movieResult.search
                 searchResultPage?.updateTable()
             } else {
