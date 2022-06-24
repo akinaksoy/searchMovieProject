@@ -16,7 +16,7 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.identifier, for: indexPath) as? SearchResultTableViewCell else {
             return UITableViewCell()
         }
-        cell.movieImage.heroID = "\(indexPath.row)"
+        cell.heroID = "\(indexPath.row)"
         let searchModel = searchResultList[indexPath.row]
         cell.configure(model: searchModel)
         return cell
@@ -29,6 +29,7 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? SearchResultTableViewCell else {return}
+        cell.heroID = "\(indexPath.row)"
         let manager = MovieDetailAPIManager()
         let imdbID = searchResultList[indexPath.row].imdbID
         manager.getMovieWithImdb(imdbID: imdbID)
@@ -39,14 +40,14 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
                     guard let movieResult = movies else {return}
                     let destinationVC = MovieDetailViewController()
                     destinationVC.configure(model: movieResult)
-                    cell.movieImage.heroID = "\(indexPath.row)"
-                    cell.movieImage.heroModifiers = [.translate(y: 100)]
+                    destinationVC.movieImage.heroID = "\(indexPath.row)"
                     self.showHero(destinationVC)
                 }
             } else {
                 let alert = Alerts.init().getBasicAlert(title: message,
                                                         message: "Check your internet connection")
                 self?.present(alert, animated: true, completion: nil)
+                return
             }
         }
     }

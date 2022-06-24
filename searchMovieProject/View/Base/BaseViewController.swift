@@ -31,15 +31,15 @@ class BaseViewController: UIViewController {
     }
 
     func disableHero() {
-        navigationController?.hero.isEnabled = false
+        presentingViewController?.navigationController?.hero.isEnabled = false
     }
     func enableHero() {
         hero.isEnabled = true
-        navigationController?.hero.isEnabled = true
+        presentingViewController?.navigationController?.hero.isEnabled = true
     }
     func showHero(_ viewController: UIViewController,
                   navigationAnimationType: HeroDefaultAnimationType =
-                    .zoomSlide(direction: .leading)) {
+                    .slide(direction: .right)) {
         viewController.hero.isEnabled = true
         presentingViewController?.navigationController?.hero.isEnabled = true
         presentingViewController?.navigationController?.hero.navigationAnimationType = navigationAnimationType

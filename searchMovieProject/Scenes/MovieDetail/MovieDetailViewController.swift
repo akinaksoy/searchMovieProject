@@ -10,7 +10,7 @@ import Kingfisher
 
 class MovieDetailViewController: BaseViewController {
 
-    private let movieImage = UIImageView.init(image: nil)
+    let movieImage = UIImageView.init(image: nil)
     private let movieNameLabel = UILabel.init(text: "a", fontSize: 16, textColor: UIColor.setContentColor)
     private let movieYearArea = UIStackView.init(axis: .vertical, distribution: .fillEqually, allignment: .center)
     private let movieYearLabel = UILabel.init(text: "a", fontSize: 14, textColor: UIColor.setCellHeaderLabelColor)
