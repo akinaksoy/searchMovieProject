@@ -32,7 +32,6 @@ class SearchViewController: BaseViewController {
         setup()
         configureNavigationBar()
     }
-
     override func configureNavigationBar() {
         super.configureNavigationBar()
         title = "Search"

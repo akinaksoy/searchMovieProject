@@ -19,6 +19,7 @@
 		1F6724BD2865956A00362A35 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6724BC2865956A00362A35 /* Constants.swift */; };
 		1F6724BF2865973A00362A35 /* Stackview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6724BE2865973A00362A35 /* Stackview.swift */; };
 		1F6724C128665F4000362A35 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6724C028665F4000362A35 /* Alerts.swift */; };
+		1F6724C628666AB800362A35 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = 1F6724C528666AB800362A35 /* Hero */; };
 		1F9C4756286456AE002537E1 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9C4755286456AE002537E1 /* SearchViewModel.swift */; };
 		1FFF83D228639D8D00E2FCC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF83D128639D8D00E2FCC5 /* AppDelegate.swift */; };
 		1FFF83D428639D8D00E2FCC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF83D328639D8D00E2FCC5 /* SceneDelegate.swift */; };
@@ -70,6 +71,7 @@
 			files = (
 				1FFF83F62863A2CC00E2FCC5 /* Kingfisher in Frameworks */,
 				1FFF83F02863A26D00E2FCC5 /* SnapKit in Frameworks */,
+				1F6724C628666AB800362A35 /* Hero in Frameworks */,
 				1FFF83F32863A29600E2FCC5 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +267,7 @@
 				1FFF83EF2863A26D00E2FCC5 /* SnapKit */,
 				1FFF83F22863A29600E2FCC5 /* Alamofire */,
 				1FFF83F52863A2CC00E2FCC5 /* Kingfisher */,
+				1F6724C528666AB800362A35 /* Hero */,
 			);
 			productName = searchMovieProject;
 			productReference = 1FFF83CE28639D8D00E2FCC5 /* searchMovieProject.app */;
@@ -298,6 +301,7 @@
 				1FFF83EE2863A26D00E2FCC5 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				1FFF83F12863A29600E2FCC5 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				1FFF83F42863A2CC00E2FCC5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				1F6724C428666AB800362A35 /* XCRemoteSwiftPackageReference "Hero" */,
 			);
 			productRefGroup = 1FFF83CF28639D8D00E2FCC5 /* Products */;
 			projectDirPath = "";
@@ -579,6 +583,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1F6724C428666AB800362A35 /* XCRemoteSwiftPackageReference "Hero" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/HeroTransitions/Hero.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		1FFF83EE2863A26D00E2FCC5 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -606,6 +618,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1F6724C528666AB800362A35 /* Hero */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F6724C428666AB800362A35 /* XCRemoteSwiftPackageReference "Hero" */;
+			productName = Hero;
+		};
 		1FFF83EF2863A26D00E2FCC5 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1FFF83EE2863A26D00E2FCC5 /* XCRemoteSwiftPackageReference "SnapKit" */;

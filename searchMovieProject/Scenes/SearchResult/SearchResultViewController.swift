@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Hero
 class SearchResultViewController: BaseViewController {
     var searchResultList: [Search] = [Search]()
     private lazy var searchTable: UITableView = {
@@ -20,6 +20,14 @@ class SearchResultViewController: BaseViewController {
         super.viewDidLoad()
         setup()
 
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        enableHero()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        disableHero()
     }
 
     override func setup() {

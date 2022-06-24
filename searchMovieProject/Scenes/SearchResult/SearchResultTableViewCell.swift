@@ -16,7 +16,7 @@ class SearchResultTableViewCell: UITableViewCell {
     private let movieYearLabel = UILabel.init(text: "",
                                               fontSize: 12,
                                               textColor: UIColor.setCellContentLabelColor)
-    private let movieImage = UIImageView.init(image: nil)
+    let movieImage = UIImageView.init(image: nil)
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -71,7 +71,7 @@ class SearchResultTableViewCell: UITableViewCell {
         prepareIndicator()
         guard let imageURL = URL.init(string: model.poster) else {return}
         DispatchQueue.main.async {
-            KF.url(imageURL).set(to: self.movieImage )
+            KF.url(imageURL).set(to: self.movieImage)
             self.activityIndicatorView.stopAnimating()
             self.activityIndicatorView.removeFromSuperview()
         }

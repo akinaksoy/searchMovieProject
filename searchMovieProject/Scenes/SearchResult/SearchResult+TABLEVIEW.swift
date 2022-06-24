@@ -16,6 +16,7 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.identifier, for: indexPath) as? SearchResultTableViewCell else {
             return UITableViewCell()
         }
+        cell.movieImage.heroID = "\(indexPath.row)"
         let searchModel = searchResultList[indexPath.row]
         cell.configure(model: searchModel)
         return cell
@@ -27,7 +28,7 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        guard let cell = tableView.cellForRow(at: indexPath) as? SearchResultTableViewCell else {return}
         let manager = MovieDetailAPIManager()
         let imdbID = searchResultList[indexPath.row].imdbID
         manager.getMovieWithImdb(imdbID: imdbID)
@@ -36,11 +37,11 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
                 DispatchQueue.main.async {
                     guard let self = self else {return}
                     guard let movieResult = movies else {return}
-                    // self.searchResultdelegate?.searchResultsViewControllerDidTapItem(movieResult)
                     let destinationVC = MovieDetailViewController()
                     destinationVC.configure(model: movieResult)
-                    self.presentingViewController?.navigationController?
-                        .pushViewController(destinationVC, animated: true)
+                    cell.movieImage.heroID = "\(indexPath.row)"
+                    cell.movieImage.heroModifiers = [.translate(y: 100)]
+                    self.showHero(destinationVC)
                 }
             } else {
                 let alert = Alerts.init().getBasicAlert(title: message,

@@ -35,6 +35,14 @@ class MovieDetailViewController: BaseViewController {
         super.viewDidLoad()
         setup()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        enableHero()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        disableHero()
+    }
     override func setup() {
         super.setup()
 
@@ -76,7 +84,6 @@ class MovieDetailViewController: BaseViewController {
 
         movieHeaderArea.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
-            make.left.equalTo(movieImage.snp_rightMargin)
             make.width.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.50)
         }
