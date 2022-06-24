@@ -10,7 +10,7 @@ import UIKit
 extension UIColor {
 
     static var setTitleColor: UIColor {
-        if let color = UIColor(named: "White-1") {
+        if let color = UIColor(named: "Orange-1") {
             return color
         } else {
             return .white

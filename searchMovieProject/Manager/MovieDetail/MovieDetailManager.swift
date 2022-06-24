@@ -14,7 +14,7 @@ class MovieDetailAPIManager {
     static let shared = MovieDetailAPIManager()
     typealias MovieCallBack = (_ movies: MovieDetail?, _ status: Bool, _ message: String) -> Void
     var callBack: MovieCallBack?
-    func getAllMoviesWithName(imdbID: String) {
+    func getMovieWithImdb(imdbID: String) {
         let url = "\(Constants.baseURL)?\(Constants.APIKey)&i=\(imdbID)"
         AF.request(url,
                    method: .get,

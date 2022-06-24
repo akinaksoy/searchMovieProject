@@ -27,7 +27,25 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("click")
+
+        let manager = MovieDetailAPIManager()
+        let imdbID = searchResultList[indexPath.row].imdbID
+        manager.getMovieWithImdb(imdbID: imdbID)
+        manager.completionHandler {[weak self] movies, status, message in
+            if status {
+                DispatchQueue.main.async {
+                    guard let self = self else {return}
+                    guard let movieResult = movies else {return}
+                    // self.searchResultdelegate?.searchResultsViewControllerDidTapItem(movieResult)
+                    let destinationVC = MovieDetailViewController()
+                    destinationVC.configure(model: movieResult)
+                    self.presentingViewController?.navigationController?
+                        .pushViewController(destinationVC, animated: true)
+                }
+            } else {
+                print(message)
+            }
+        }
     }
 
 }

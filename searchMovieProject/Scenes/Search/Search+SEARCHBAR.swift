@@ -23,7 +23,6 @@ extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
         manager.getAllMoviesWithName(movieName: movieName)
         manager.completionHandler {[weak self] movies, status, message in
             if status {
-                guard let self = self else {return}
                 guard let movieResult = movies else {return}
                 searchResultPage?.searchResultList = movieResult.search
                 searchResultPage?.updateTable()
@@ -33,6 +32,5 @@ extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
         }
 
         searchBar.resignFirstResponder() // hide keyboard
-
     }
 }

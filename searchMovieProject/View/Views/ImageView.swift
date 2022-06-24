@@ -20,6 +20,8 @@ extension UIImageView {
         self.init()
         self.image = image
         self.contentMode = .scaleAspectFit
+        self.layer.borderColor = UIColor.setCellHeaderLabelColor.cgColor
+        self.layer.borderWidth = 2
     }
 
 }

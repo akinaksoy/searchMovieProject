@@ -9,7 +9,6 @@ import UIKit
 
 class SearchResultViewController: BaseViewController {
     var searchResultList: [Search] = [Search]()
-
     private lazy var searchTable: UITableView = {
         let table = UITableView()
         table.register(SearchResultTableViewCell.self, forCellReuseIdentifier: SearchResultTableViewCell.identifier)
@@ -36,7 +35,7 @@ class SearchResultViewController: BaseViewController {
     func designTable() {
 
         view.addSubview(searchTable)
-
+        searchTable.separatorColor = UIColor.setCellHeaderLabelColor
         searchTable.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
