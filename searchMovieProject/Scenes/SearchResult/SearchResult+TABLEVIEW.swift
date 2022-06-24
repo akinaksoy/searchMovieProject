@@ -43,7 +43,9 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
                         .pushViewController(destinationVC, animated: true)
                 }
             } else {
-                print(message)
+                let alert = Alerts.init().getBasicAlert(title: message,
+                                                        message: "Check your internet connection")
+                self?.present(alert, animated: true, completion: nil)
             }
         }
     }

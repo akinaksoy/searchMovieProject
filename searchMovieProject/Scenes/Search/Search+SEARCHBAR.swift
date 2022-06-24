@@ -27,7 +27,9 @@ extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
                 searchResultPage?.searchResultList = movieResult.search
                 searchResultPage?.updateTable()
             } else {
-                print(message)
+                let alert = Alerts.init().getBasicAlert(title: "Something went wrong",
+                                                        message: "Check your internet connection or movie name")
+                self?.present(alert, animated: true, completion: nil)
             }
         }
 

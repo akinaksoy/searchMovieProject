@@ -27,7 +27,6 @@ class MovieAPIManager {
                         self.callBack?(movies, true, "")
                     } catch {
                         self.callBack?(nil, false, "")
-                        print(error.localizedDescription)
                     }
                    }
     }
