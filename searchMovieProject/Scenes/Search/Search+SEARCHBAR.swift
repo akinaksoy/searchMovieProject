@@ -12,8 +12,7 @@ extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
 
-        guard let movieName = searchController.searchBar.text else {return}
-        searchResultPage?.movieText = movieName
+        searchResultPage?.searchBar = searchController.searchBar
         searchResultPage?.setEnableSearchButton()
     }
 

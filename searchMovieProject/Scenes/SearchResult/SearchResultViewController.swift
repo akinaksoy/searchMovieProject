@@ -9,7 +9,7 @@ import UIKit
 import Hero
 class SearchResultViewController: BaseViewController {
 
-    var movieText = ""
+    var searchBar: UISearchBar?
     var searchResultList: [Search] = [Search]()
     private lazy var searchTable: UITableView = {
         let table = UITableView()
@@ -23,7 +23,8 @@ class SearchResultViewController: BaseViewController {
     @objc func clickedOnSearch() {
         designTable()
         let manager = MovieAPIManager()
-        manager.getAllMoviesWithName(movieName: movieText)
+        guard let movieName = searchBar?.text else {return}
+        manager.getAllMoviesWithName(movieName: movieName)
         manager.completionHandler {[weak self] movies, status, message in
             if status {
                 guard let movieResult = movies else {return}
@@ -35,7 +36,7 @@ class SearchResultViewController: BaseViewController {
                 self?.present(alert, animated: true, completion: nil)
             }
         }
-
+        searchBar?.resignFirstResponder()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
