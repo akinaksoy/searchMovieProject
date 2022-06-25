@@ -10,31 +10,35 @@ import Kingfisher
 
 class MovieDetailViewController: BaseViewController {
 
+    var imdbId: String?
+    var viewModel = MovieDetailViewModel()
+
     let movieImage = UIImageView.init(image: nil)
-    private let movieNameLabel = UILabel.init(text: "a", fontSize: 16, textColor: UIColor.setContentColor)
+    private let movieNameLabel = UILabel.init(text: "", fontSize: 16, textColor: UIColor.setContentColor)
     private let movieYearArea = UIStackView.init(axis: .vertical, distribution: .fillEqually, allignment: .center)
-    private let movieYearLabel = UILabel.init(text: "a", fontSize: 14, textColor: UIColor.setCellHeaderLabelColor)
-    private let movieYearValueLabel = UILabel.init(text: "a", fontSize: 14, textColor: UIColor.setCellContentLabelColor)
+    private let movieYearLabel = UILabel.init(text: "", fontSize: 14, textColor: UIColor.setCellHeaderLabelColor)
+    private let movieYearValueLabel = UILabel.init(text: "", fontSize: 14, textColor: UIColor.setCellContentLabelColor)
     private let runTimeArea = UIStackView.init(axis: .vertical, distribution: .fillEqually, allignment: .center)
-    private let runTimeLabel = UILabel.init(text: "a", fontSize: 14, textColor: UIColor.setCellHeaderLabelColor)
-    private let runTimeValueLabel = UILabel.init(text: "a", fontSize: 14, textColor: UIColor.setCellContentLabelColor)
+    private let runTimeLabel = UILabel.init(text: "", fontSize: 14, textColor: UIColor.setCellHeaderLabelColor)
+    private let runTimeValueLabel = UILabel.init(text: "", fontSize: 14, textColor: UIColor.setCellContentLabelColor)
     private let genreArea = UIStackView.init(axis: .vertical, distribution: .fillEqually, allignment: .center)
-    private let genreLabel = UILabel.init(text: "a", fontSize: 14, textColor: UIColor.setCellHeaderLabelColor)
-    private let genreValueLabel = UILabel.init(text: "a", fontSize: 14, textColor: UIColor.setCellContentLabelColor)
+    private let genreLabel = UILabel.init(text: "", fontSize: 14, textColor: UIColor.setCellHeaderLabelColor)
+    private let genreValueLabel = UILabel.init(text: "", fontSize: 14, textColor: UIColor.setCellContentLabelColor)
     private let directorArea = UIStackView.init(axis: .vertical, distribution: .fillEqually, allignment: .center)
-    private let directorLabel = UILabel.init(text: "a", fontSize: 14, textColor: UIColor.setCellHeaderLabelColor)
-    private let directorValueLabel = UILabel.init(text: "a", fontSize: 14, textColor: UIColor.setCellContentLabelColor)
+    private let directorLabel = UILabel.init(text: "", fontSize: 14, textColor: UIColor.setCellHeaderLabelColor)
+    private let directorValueLabel = UILabel.init(text: "", fontSize: 14, textColor: UIColor.setCellContentLabelColor)
     private let actorsArea = UIStackView.init(axis: .vertical, distribution: .fillEqually, allignment: .center)
-    private let actorsLabel = UILabel.init(text: "a", fontSize: 14, textColor: UIColor.setCellHeaderLabelColor)
-    private let actorsValueLabel = UILabel.init(text: "a", fontSize: 14, textColor: UIColor.setCellContentLabelColor)
-    private let summaryLabel = UILabel.init(text: "a", fontSize: 18, textColor: UIColor.setCellHeaderLabelColor)
-    private let summaryValueLabel = UILabel.init(text: "a", fontSize: 14, textColor: UIColor.setCellContentLabelColor)
+    private let actorsLabel = UILabel.init(text: "", fontSize: 14, textColor: UIColor.setCellHeaderLabelColor)
+    private let actorsValueLabel = UILabel.init(text: "", fontSize: 14, textColor: UIColor.setCellContentLabelColor)
+    private let summaryLabel = UILabel.init(text: "", fontSize: 18, textColor: UIColor.setCellHeaderLabelColor)
+    private let summaryValueLabel = UILabel.init(text: "", fontSize: 14, textColor: UIColor.setCellContentLabelColor)
     private let movieHeaderArea = UIStackView.init(axis: .horizontal, distribution: .fillEqually, allignment: .center)
     private let movieDetailArea = UIStackView.init(axis: .vertical, distribution: .fillEqually, allignment: .center)
-
+    let activityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        getModel()
         setup()
     }
 
@@ -75,8 +79,16 @@ class MovieDetailViewController: BaseViewController {
         configureNavigationBar()
         makeConstraints()
         makeDesign()
-    }
 
+    }
+    func prepareIndicator() {
+        activityIndicatorView.color = .setCellContentLabelColor
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+        }
+        activityIndicatorView.startAnimating()
+    }
     func makeDesign() {
         movieNameLabel.textAlignment = .center
         view.backgroundColor = UIColor.setCellBackgroundColor
@@ -118,6 +130,35 @@ class MovieDetailViewController: BaseViewController {
             make.top.equalTo(summaryLabel.snp_bottomMargin)
             make.left.right.bottom.equalToSuperview()
         }
+    }
+    func getModel() {
+        guard let imdbId = imdbId else {
+            return
+        }
+
+        viewModel.prepareMovieDetail(imdbID: imdbId) { result in
+            DispatchQueue.main.async {
+                self.prepareIndicator()
+                switch result {
+                case .success(true) :
+                    guard let movieDetail = self.viewModel.movie else {return}
+                    self.configure(model: movieDetail)
+                    self.activityIndicatorView.stopAnimating()
+                    self.activityIndicatorView.removeFromSuperview()
+                case .failure :
+                    self.showNetworkError()
+                case .success(false):
+                    self.showNetworkError()
+                }
+
+            }
+
+        }
+    }
+    func showNetworkError() {
+        let alert = Alerts.init().getBasicAlert(title: "Something went wrong",
+                                                message: "Check your internet connection or movie name")
+        self.present(alert, animated: true, completion: nil)
     }
     func configure(model: MovieDetail) {
         title = model.title

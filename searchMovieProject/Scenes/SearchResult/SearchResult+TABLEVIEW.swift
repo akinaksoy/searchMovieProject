@@ -30,26 +30,11 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? SearchResultTableViewCell else {return}
         cell.heroID = "\(indexPath.row)"
-        let manager = MovieDetailAPIManager()
+        let destinationVC = MovieDetailViewController()
         let imdbID = viewModel.movieList[indexPath.row].imdbID
-        manager.getMovieWithImdb(imdbID: imdbID)
-        manager.completionHandler {[weak self] movies, status, message in
-            if status {
-                DispatchQueue.main.async {
-                    guard let self = self else {return}
-                    guard let movieResult = movies else {return}
-                    let destinationVC = MovieDetailViewController()
-                    destinationVC.configure(model: movieResult)
-                    destinationVC.movieImage.heroID = "\(indexPath.row)"
-                    self.showHero(destinationVC)
-                }
-            } else {
-                let alert = Alerts.init().getBasicAlert(title: message,
-                                                        message: "Check your internet connection")
-                self?.present(alert, animated: true, completion: nil)
-                return
-            }
-        }
+        destinationVC.imdbId = imdbID
+        destinationVC.movieImage.heroID = "\(indexPath.row)"
+        self.showHero(destinationVC)
     }
 
 }
