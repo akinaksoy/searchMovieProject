@@ -9,8 +9,9 @@ import UIKit
 import Hero
 class SearchResultViewController: BaseViewController {
 
+    let viewModel = SearchViewModel()
     var searchBar: UISearchBar?
-    var searchResultList: [Search] = [Search]()
+
     private lazy var searchTable: UITableView = {
         let table = UITableView()
         table.register(SearchResultTableViewCell.self, forCellReuseIdentifier: SearchResultTableViewCell.identifier)
@@ -49,20 +50,23 @@ class SearchResultViewController: BaseViewController {
     }
 
     func prepareMovieListForTable() {
-        let manager = MovieAPIManager()
+
         guard let movieName = searchBar?.text else {return}
-        manager.getAllMoviesWithName(movieName: movieName)
-        manager.completionHandler {[weak self] movies, status, message in
-            if status {
-                guard let movieResult = movies else {return}
-                self?.searchResultList = movieResult.search
-                self?.updateTable()
-            } else {
-                let alert = Alerts.init().getBasicAlert(title: "Something went wrong",
-                                                        message: "Check your internet connection or movie name")
-                self?.present(alert, animated: true, completion: nil)
+        viewModel.prepareMovieListForTable(movieTitle: movieName) { result in
+            switch result {
+            case .success(true) :
+                self.updateTable()
+            case .failure :
+                self.showNetworkError()
+            case .success(false):
+                self.showNetworkError()
             }
         }
+    }
+    func showNetworkError() {
+        let alert = Alerts.init().getBasicAlert(title: "Something went wrong",
+                                                message: "Check your internet connection or movie name")
+        self.present(alert, animated: true, completion: nil)
     }
     func setEnableSearchButton() {
         searchTable.removeFromSuperview()

@@ -19,6 +19,7 @@ class MovieAPIManager {
                    encoding: URLEncoding.default,
                    headers: nil,
                    interceptor: nil).response { (responseData) in
+
                     guard let data = responseData.data else {
                         self.callBack?(nil, false, "")
                         return}

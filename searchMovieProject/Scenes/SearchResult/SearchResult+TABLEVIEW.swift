@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchResultList.count
+        return viewModel.getMovieListCount()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -17,7 +17,7 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
             return UITableViewCell()
         }
         cell.heroID = "\(indexPath.row)"
-        let searchModel = searchResultList[indexPath.row]
+        let searchModel = viewModel.movieList[indexPath.row]
         cell.configure(model: searchModel)
         return cell
     }
@@ -31,7 +31,7 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
         guard let cell = tableView.cellForRow(at: indexPath) as? SearchResultTableViewCell else {return}
         cell.heroID = "\(indexPath.row)"
         let manager = MovieDetailAPIManager()
-        let imdbID = searchResultList[indexPath.row].imdbID
+        let imdbID = viewModel.movieList[indexPath.row].imdbID
         manager.getMovieWithImdb(imdbID: imdbID)
         manager.completionHandler {[weak self] movies, status, message in
             if status {
