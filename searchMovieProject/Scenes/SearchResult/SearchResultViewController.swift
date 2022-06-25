@@ -22,20 +22,7 @@ class SearchResultViewController: BaseViewController {
 
     @objc func clickedOnSearch() {
         designTable()
-        let manager = MovieAPIManager()
-        guard let movieName = searchBar?.text else {return}
-        manager.getAllMoviesWithName(movieName: movieName)
-        manager.completionHandler {[weak self] movies, status, message in
-            if status {
-                guard let movieResult = movies else {return}
-                self?.searchResultList = movieResult.search
-                self?.updateTable()
-            } else {
-                let alert = Alerts.init().getBasicAlert(title: "Something went wrong",
-                                                        message: "Check your internet connection or movie name")
-                self?.present(alert, animated: true, completion: nil)
-            }
-        }
+        prepareMovieListForTable()
         searchBar?.resignFirstResponder()
     }
     override func viewDidLoad() {
@@ -61,6 +48,22 @@ class SearchResultViewController: BaseViewController {
         super.configureNavigationBar()
     }
 
+    func prepareMovieListForTable() {
+        let manager = MovieAPIManager()
+        guard let movieName = searchBar?.text else {return}
+        manager.getAllMoviesWithName(movieName: movieName)
+        manager.completionHandler {[weak self] movies, status, message in
+            if status {
+                guard let movieResult = movies else {return}
+                self?.searchResultList = movieResult.search
+                self?.updateTable()
+            } else {
+                let alert = Alerts.init().getBasicAlert(title: "Something went wrong",
+                                                        message: "Check your internet connection or movie name")
+                self?.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
     func setEnableSearchButton() {
         searchTable.removeFromSuperview()
         searchButton.addTarget(self, action: #selector(clickedOnSearch), for: .touchUpInside)
