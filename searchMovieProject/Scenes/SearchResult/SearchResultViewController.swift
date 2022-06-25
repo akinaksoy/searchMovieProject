@@ -67,11 +67,6 @@ class SearchResultViewController: BaseViewController {
             }
         }
     }
-    func showNetworkError() {
-        let alert = Alerts.init().getBasicAlert(title: "Something went wrong",
-                                                message: "Check your internet connection or movie name")
-        self.present(alert, animated: true, completion: nil)
-    }
     func setEnableSearchButton() {
         searchTable.removeFromSuperview()
         searchButton.addTarget(self, action: #selector(clickedOnSearch), for: .touchUpInside)
