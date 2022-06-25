@@ -11,7 +11,7 @@ import SnapKit
 class SearchViewController: BaseViewController {
 
     let viewModel = SearchViewModel()
-
+    lazy var searchResultPage = searchController.searchResultsController as? SearchResultViewController
     internal let searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: SearchResultViewController())
         controller.searchBar.placeholder = "Search Movie or Tv Show"

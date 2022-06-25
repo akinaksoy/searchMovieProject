@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F56BEF92867217300F55266 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F56BEF82867217300F55266 /* Button.swift */; };
 		1F6724A62864EAD500362A35 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6724A52864EAD500362A35 /* SearchResultViewController.swift */; };
 		1F6724AA2864EC6B00362A35 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6724A92864EC6B00362A35 /* BaseViewController.swift */; };
 		1F6724AC2864F6F500362A35 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6724AB2864F6F500362A35 /* SearchResultTableViewCell.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F56BEF82867217300F55266 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		1F6724A52864EAD500362A35 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		1F6724A92864EC6B00362A35 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1F6724AB2864F6F500362A35 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				1F6724AD2864F77400362A35 /* ImageView.swift */,
 				1F6724BE2865973A00362A35 /* Stackview.swift */,
 				1F6724C028665F4000362A35 /* Alerts.swift */,
+				1F56BEF82867217300F55266 /* Button.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				1F6724B028652AB300362A35 /* SearchResult+TABLEVIEW.swift in Sources */,
 				1F6724C128665F4000362A35 /* Alerts.swift in Sources */,
 				1FFF83F92863A5E700E2FCC5 /* ColorExtension.swift in Sources */,
+				1F56BEF92867217300F55266 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
