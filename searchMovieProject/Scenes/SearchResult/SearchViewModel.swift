@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 class SearchViewModel {
-    
+
     var movieList: [Search] = [Search]()
-    
+
     func prepareMovieListForTable(movieTitle: String?, completition : @escaping (Result<Bool, Error>) -> Void) {
         let manager = MovieAPIManager()
 

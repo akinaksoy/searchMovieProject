@@ -11,10 +11,10 @@ class MovieAPIManager {
     static let shared = MovieAPIManager()
     typealias MoviesCallBack = (_ movies: Movie?, _ status: Bool, _ message: String) -> Void
     var callBack: MoviesCallBack?
-    
+
     func getAllMoviesWithName(movieName: String) {
         let url = "\(Constants.baseURL)?\(Constants.APIKey)&s=\(movieName)"
-        
+
         AF.request(url,
                    method: .get,
                    parameters: nil,

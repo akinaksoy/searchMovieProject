@@ -20,12 +20,12 @@ class SearchResultTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+
         contentView.backgroundColor = UIColor.setCellBackgroundColor
         contentView.addSubview(movieImage)
         contentView.addSubview(movieTitleLabel)
         contentView.addSubview(movieYearLabel)
-        
+
         movieTitleLabel.numberOfLines = 0
         movieTitleLabel.textAlignment = .center
         movieYearLabel.numberOfLines = 0
@@ -54,11 +54,11 @@ class SearchResultTableViewCell: UITableViewCell {
         }
 
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError()
     }
-    
+
     func prepareIndicator() {
         activityIndicatorView.color = .setCellContentLabelColor
         contentView.addSubview(activityIndicatorView)
@@ -69,7 +69,7 @@ class SearchResultTableViewCell: UITableViewCell {
         }
         activityIndicatorView.startAnimating()
     }
-    
+
     func configure(model: Search) {
         movieTitleLabel.text = model.title
         movieYearLabel.text = model.year
