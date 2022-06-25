@@ -12,6 +12,7 @@ class SearchViewController: BaseViewController {
 
     let viewModel = SearchViewModel()
     lazy var searchResultPage = searchController.searchResultsController as? SearchResultViewController
+    
     internal let searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: SearchResultViewController())
         controller.searchBar.placeholder = "Search Movie or Tv Show"
@@ -28,12 +29,14 @@ class SearchViewController: BaseViewController {
                                                   textColor: UIColor.setContentColor)
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         searchController.searchResultsUpdater = self
         setup()
         configureNavigationBar()
     }
     override func configureNavigationBar() {
         super.configureNavigationBar()
+        
         title = "Search"
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
@@ -41,6 +44,7 @@ class SearchViewController: BaseViewController {
 
     override func setup() {
         super.setup()
+        
         view.addSubview(searchWarningImage)
         view.addSubview(searchWarningLabel)
         makeConstraintsDesign()

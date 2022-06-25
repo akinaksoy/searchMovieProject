@@ -14,8 +14,10 @@ class MovieDetailAPIManager {
     static let shared = MovieDetailAPIManager()
     typealias MovieCallBack = (_ movies: MovieDetail?, _ status: Bool, _ message: String) -> Void
     var callBack: MovieCallBack?
+    
     func getMovieWithImdb(imdbID: String) {
         let url = "\(Constants.baseURL)?\(Constants.APIKey)&i=\(imdbID)"
+        
         AF.request(url,
                    method: .get,
                    parameters: nil,
@@ -34,6 +36,7 @@ class MovieDetailAPIManager {
                     }
                    }
     }
+    
     func completionHandler(callBack: @escaping MovieCallBack) {
         self.callBack = callBack
     }

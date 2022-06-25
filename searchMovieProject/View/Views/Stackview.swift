@@ -13,6 +13,7 @@ extension UIStackView {
                      distribution: UIStackView.Distribution,
                      allignment: UIStackView.Alignment) {
         self.init()
+        
         self.axis = axis
         self.distribution = distribution
         self.alignment = allignment

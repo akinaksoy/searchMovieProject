@@ -22,6 +22,7 @@ class BaseViewController: UIViewController {
 
     func configureNavigationBar() {
         let appearance = UINavigationBarAppearance()
+        
         navigationController?.navigationBar.tintColor = .white
         appearance.titleTextAttributes = [.foregroundColor: UIColor.setTitleColor]
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.setTitleColor]

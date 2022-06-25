@@ -28,20 +28,23 @@ class SearchResultViewController: BaseViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setup()
-
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         enableHero()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         disableHero()
     }
 
     override func setup() {
         super.setup()
+        
         configureNavigationBar()
 
     }
@@ -52,6 +55,7 @@ class SearchResultViewController: BaseViewController {
     func prepareMovieListForTable() {
 
         guard let movieName = searchBar?.text else {return}
+        
         viewModel.prepareMovieListForTable(movieTitle: movieName) { result in
             switch result {
             case .success(true) :
@@ -82,14 +86,15 @@ class SearchResultViewController: BaseViewController {
         searchButton.removeFromSuperview()
         view.addSubview(searchTable)
         searchTable.separatorColor = UIColor.setCellHeaderLabelColor
+        
         searchTable.snp.makeConstraints { make in
             make.top.left.right.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalToSuperview()
         }
+        
         updateTable()
     }
     func updateTable() {
-
         DispatchQueue.main.async { [weak self] in
             self?.searchTable.reloadData()
         }

@@ -11,6 +11,7 @@ extension UIButton {
 
     convenience init(buttonText: String) {
         self.init()
+        
         self.layer.borderWidth = 3
         self.layer.cornerRadius = 5
         self.layer.borderColor = UIColor.setButtonTitleLayerColor.cgColor

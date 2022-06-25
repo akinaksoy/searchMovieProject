@@ -31,18 +31,23 @@ class MovieDetailViewController: BaseViewController {
     private let summaryValueLabel = UILabel.init(text: "a", fontSize: 14, textColor: UIColor.setCellContentLabelColor)
     private let movieHeaderArea = UIStackView.init(axis: .horizontal, distribution: .fillEqually, allignment: .center)
     private let movieDetailArea = UIStackView.init(axis: .vertical, distribution: .fillEqually, allignment: .center)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setup()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         enableHero()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         disableHero()
     }
+    
     override func setup() {
         super.setup()
 
@@ -116,6 +121,7 @@ class MovieDetailViewController: BaseViewController {
     }
     func configure(model: MovieDetail) {
         title = model.title
+        
         DispatchQueue.main.async {
             let imageURL = URL.init(string: model.poster)
             KF.url(imageURL).set(to: self.movieImage )

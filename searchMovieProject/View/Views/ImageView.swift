@@ -12,12 +12,14 @@ extension UIImageView {
 
     convenience init(systemImageName: String, tintColor: UIColor) {
         self.init()
+        
         self.image = UIImage(systemName: systemImageName)
         self.tintColor = tintColor
         self.contentMode = .scaleAspectFit
     }
     convenience init(image: UIImage) {
         self.init()
+        
         self.image = image
         self.contentMode = .scaleAspectFit
         self.layer.borderColor = UIColor.setCellHeaderLabelColor.cgColor
